@@ -68,6 +68,7 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '11111111111111111')
   }); 
 
+  //Dividing by 0 should return undefined. The code returns Infinity. Javascript problem.
   it ('dividing by zero should result in undefined', () => {
     cy.get('#number1').click();
     cy.get('#operator_divide').click();
@@ -75,8 +76,6 @@ describe("Calculator", () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', 'undefined')
   }); 
-
-
 
 
 })
