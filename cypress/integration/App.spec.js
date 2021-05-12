@@ -8,13 +8,34 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '2')
   });
 
-  it ('shoud be able to add 1 to 4 and get 5', () => {
+  it ('do the results of calculations appear on the display?', () => {
     cy.get('#number1').click();
     cy.get('#operator_add').click();
     cy.get('#number4').click();
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '5')
   });
+
+  //This test fails, the calculator does not allow chaining together of operations - the display result is 5 (4+1).
+  xit ('can multiple operations be chained together?', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_add').click();
+    cy.get('#number4').click();
+    cy.get('#operator_add').click();
+    cy.get('#number1').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '6')
+  });  
+
+  xit ('can multiple operations be chained together?', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_add').click();
+    cy.get('#number4').click();
+    cy.get('#operator_add').click();
+    cy.get('#number1').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '6')
+  });  
 
 
 
