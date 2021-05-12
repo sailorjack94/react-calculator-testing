@@ -70,12 +70,34 @@ describe('Calculator', () => {
     expect(runningTotal).toHaveTextContent('3')
   });
 
-  xit('concatenate multiple number button clicks', () => {
-
+  it('concatenate multiple number button clicks', () => {
+    const button2 = container.getByTestId('number2');
+    const button1 = container.getByTestId('number1');
+    const button7 = container.getByTestId('number7');
+    const operator_equals = container.getByTestId('equals');
+    fireEvent.click(button2);
+    fireEvent.click(button1);
+    fireEvent.click(button7);
+    fireEvent.click(operator_equals);
+    const runningTotal = container.getByTestId('running-total');
+    expect(runningTotal).toHaveTextContent('217')
   });
 
-  xit('chain multiple operations together', () => {
-
+  it('chain multiple operations together', () => {
+    const button2 = container.getByTestId('number2');
+    const button1 = container.getByTestId('number1');
+    const button7 = container.getByTestId('number7');
+    const operator_multiply = container.getByTestId('multiply');
+    const operator_equals = container.getByTestId('equals');
+    fireEvent.click(button2);
+    fireEvent.click(operator_multiply);
+    fireEvent.click(button1);
+    fireEvent.click(operator_equals);
+    fireEvent.click(operator_multiply);
+    fireEvent.click(button7);
+    fireEvent.click(operator_equals);
+    const runningTotal = container.getByTestId('running-total');
+    expect(runningTotal).toHaveTextContent('14')
   });
 
   xit('clear the running total without affecting the calculation', () => {
