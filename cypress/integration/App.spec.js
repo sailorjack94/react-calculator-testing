@@ -45,6 +45,28 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '-3')
   }); 
 
+  it ('does the app handle big numbers?', () => {
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '11111111111111111')
+  }); 
 
 
 
