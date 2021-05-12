@@ -37,7 +37,13 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '-4')
   });  
 
-
+  it ('does the app handle negative numbers as the result of a calculation?', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_subtract').click();
+    cy.get('#number4').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '-3')
+  }); 
 
 
 
