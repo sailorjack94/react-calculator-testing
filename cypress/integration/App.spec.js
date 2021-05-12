@@ -27,14 +27,14 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '6')
   });  
 
-  xit ('can multiple operations be chained together?', () => {
+  //This test fails, the calculator cannot initialist negative numbers.
+  xit ('does the app handle negative numbers?', () => {
+    cy.get('#operator_subtract').click();
     cy.get('#number1').click();
-    cy.get('#operator_add').click();
+    cy.get('#operator_multiply').click();
     cy.get('#number4').click();
-    cy.get('#operator_add').click();
-    cy.get('#number1').click();
     cy.get('#operator_equals').click();
-    cy.get('.display').should('contain', '6')
+    cy.get('.display').should('contain', '-4')
   });  
 
 
