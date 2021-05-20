@@ -100,7 +100,20 @@ describe('Calculator', () => {
     expect(runningTotal).toHaveTextContent('14')
   });
 
-  xit('clear the running total without affecting the calculation', () => {
+  it('clear the running total without affecting the calculation', () => {
+    const button7 = container.getByTestId('number7');
+    const button2 = container.getByTestId('number2');
+    const operatorAdd = container.getByTestId('add');
+    const operatorClear = container.getByTestId('clear');
+    const operatorEqual = container.getByTestId('equals');
+    fireEvent.click(button7);
+    fireEvent.click(operatorAdd);
+    fireEvent.click(button2);
+    fireEvent.click(operatorClear);
+    fireEvent.click(button2);
+    fireEvent.click(operatorEqual);
+    const runningTotal = container.getByTestId('running-total');
+    expect(runningTotal).toHaveTextContent('9');
 
   });
 
